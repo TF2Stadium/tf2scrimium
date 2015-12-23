@@ -20,11 +20,24 @@
                  [bk/ring-gzip "0.1.1"]
                  [compojure "1.4.0"]
                  [enlive "1.1.6"]
-                 [org.omcljs/om "1.0.0-alpha28"]
+                 [org.omcljs/om "0.9.0"]
                  [environ "1.0.1"]
-                 [prismatic/om-tools "0.3.11"]]
+                 [prismatic/om-tools "0.3.11"]
+                 [fogus/ring-edn "0.3.0"]
+                 [cljs-ajax "0.5.2"]
+                 [ring-transit "0.1.4"]
 
-  :plugins [[lein-cljsbuild "1.0.5"]
+                 ;; Steam API for looking up player info, etc.
+                 [steamweb "0.1.0"]
+
+                 ;; OpenID dependencies. The openid4java artifact refers to a
+                 ;; now-disappeared guice repo, so we have to manually
+                 ;; fix that
+                 [org.openid4java/openid4java-nodeps "0.9.6"
+                  :exclusions [com.google.code.guice/guice]]
+                 [com.google.inject/guice "2.0"]]
+
+  :plugins [[lein-cljsbuild "1.1.1"]
             [lein-environ "1.0.1"]
             [lein-less "1.7.3"]]
 
