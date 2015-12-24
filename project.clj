@@ -14,6 +14,7 @@
 
   :dependencies [[org.clojure/clojure "1.7.0"]
                  [org.clojure/clojurescript "1.7.189" :scope "provided"]
+                 [org.clojure/core.async "0.2.374"]
                  [ring "1.4.0"]
                  [ring/ring-defaults "0.1.5"]
                  [slester/ring-browser-caching "0.1.1"]
@@ -27,6 +28,7 @@
                  [cljs-ajax "0.5.2"]
                  [ring-transit "0.1.4"]
                  [http-kit "2.1.18"]
+                 [com.taoensso/sente "1.7.0"]
 
                  ;; Steam API for looking up player info, etc.
                  [steamweb "0.1.0"]

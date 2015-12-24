@@ -16,7 +16,8 @@
              :refer [wrap-transit-response wrap-transit-body]]
             [environ.core :refer [env]]
             [org.httpkit.server :refer [run-server]]
-            [scrim.auth :refer [auth-routes]])
+            [scrim.auth :refer [auth-routes]]
+            [scrim.chat :refer [chat-routes]])
   (:gen-class))
 
 (deftemplate page (io/resource "index.html") []
@@ -26,7 +27,8 @@
   (resources "/")
   (resources "/react" {:root "react"})
   (context "/api" {}
-      (context "/auth" {} auth-routes))
+    (context "/auth" {} auth-routes)
+    (context "/chat" {} chat-routes))
   (GET "/" {} (page))
   (not-found "404"))
 
@@ -42,7 +44,7 @@
 
 (def http-handler
   (cond-> routes
-    is-dev? wrap-debug
+;;    is-dev? wrap-debug
     true wrap-params
     true wrap-transit-response
     true wrap-transit-body
