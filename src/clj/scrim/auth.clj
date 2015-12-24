@@ -36,8 +36,7 @@
      (if-let [steamid (:steamid session)]
        {:logged-in true
         :steamid steamid
-        :info (get-player steamid)
-        :info-fetched (fetch-player steamid)}
+        :info (get-player steamid)}
        {:logged-in false})))
 
   (POST "/login" {uri :uri
