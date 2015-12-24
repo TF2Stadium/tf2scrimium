@@ -15,7 +15,7 @@
             [ring.middleware.transit
              :refer [wrap-transit-response wrap-transit-body]]
             [environ.core :refer [env]]
-            [ring.adapter.jetty :refer [run-jetty]]
+            [org.httpkit.server :refer [run-server]]
             [scrim.auth :refer [auth-routes]])
   (:gen-class))
 
@@ -54,7 +54,7 @@
 (defn run-web-server [& [port]]
   (let [port (Integer. (or port (env :port) 10555))]
     (println (format "Starting web server on port %d." port))
-    (run-jetty #'http-handler {:port port :join? false})))
+    (run-server #'http-handler {:port port :join? false})))
 
 (defn run-auto-reload [& [port]]
   (auto-reload *ns*)

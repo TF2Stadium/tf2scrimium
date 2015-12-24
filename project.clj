@@ -26,6 +26,7 @@
                  [fogus/ring-edn "0.3.0"]
                  [cljs-ajax "0.5.2"]
                  [ring-transit "0.1.4"]
+                 [http-kit "2.1.18"]
 
                  ;; Steam API for looking up player info, etc.
                  [steamweb "0.1.0"]
