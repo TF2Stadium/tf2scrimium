@@ -35,16 +35,8 @@
 (defn- wrap-browser-caching-opts [handler]
   (wrap-browser-caching handler (or (env :browser-caching) {})))
 
-(defn wrap-debug [handler]
-  (fn [request]
-    (let [response (handler request)]
-      (println "request:" request)
-      (println "response:" response)
-      response)))
-
 (def http-handler
   (cond-> routes
-;;    is-dev? wrap-debug
     true wrap-params
     true wrap-transit-response
     true wrap-transit-body
